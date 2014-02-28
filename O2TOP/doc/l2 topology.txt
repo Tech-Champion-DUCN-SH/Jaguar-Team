@@ -1,0 +1,1457 @@
+
+
+SSH to below ITTE RSG 
+IP:10.175.245.2
+Username:rdcchhb, password:Rdcchhb_123
+SSH to OpenStack Server
+IP:10.175.150.3
+Username:localadmin, password:3r1cs50n (talk with James to set a new account).
+Setup SSH tunnel on port 80 and 6080 via ITTE RSG. Access Horizon (OpenStack Dashboard) as below:
+http://127.0.0.1/horizon (use chrome or firefox)
+Username:admin, password:admin
+
+
+
+Last login: Tue Feb 25 14:04:42 2014 from 146.11.26.123
+Sun Microsystems Inc.   SunOS 5.10      Generic January 2005
+$ ph
+ph: not found
+$ python
+python: not found
+$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$ ssh -X 10.175.150.3 -l localadmin
+localadmin@10.175.150.3's password: 
+Welcome to Ubuntu 12.04.2 LTS (GNU/Linux 3.2.0-51-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Tue Feb 25 16:16:37 CST 2014
+
+  System load:     4.4                IP address for eth0:   10.175.150.3
+  Usage of /home:  92.6% of 73.33GB   IP address for eth1:   192.168.2.100
+  Memory usage:    55%                IP address for lxcbr0: 10.0.3.1
+  Swap usage:      7%                 IP address for virbr0: 192.168.122.1
+  Processes:       410                IP address for br-iot: 192.168.2.101
+  Users logged in: 2
+
+  => /home is using 92.6% of 73.33GB
+  => /var/lib is using 87.8% of 196.86GB
+  => There are 7 zombie processes.
+
+  Graph this data and manage this system at https://landscape.canonical.com/
+
+225 packages can be updated.
+84 updates are security updates.
+
+Last login: Tue Feb 25 15:05:44 2014 from 10.175.245.2
+localadmin@ubuntu1:~$ sudo ovs-vsctl show
+[sudo] password for localadmin: 
+ec6a6a43-24a2-4c07-bdf1-a9dc8338524c
+    Bridge br-ex
+        Port phy-br-ex
+            Interface phy-br-ex
+        Port "eth3.245"
+            Interface "eth3.245"
+        Port "eth3"
+            Interface "eth3"
+        Port br-ex
+            Interface br-ex
+                type: internal
+    Bridge br-iot
+        Port br-iot
+            Interface br-iot
+                type: internal
+        Port phy-br-iot
+            Interface phy-br-iot
+        Port "eth1"
+            Interface "eth1"
+    Bridge "br-eth2"
+        Port "eth2"
+            Interface "eth2"
+        Port "br-eth2"
+            Interface "br-eth2"
+                type: internal
+        Port "phy-br-eth2"
+            Interface "phy-br-eth2"
+    Bridge br-rdatest
+        Port "taprdamon1"
+            Interface "taprdamon1"
+                type: internal
+        Port br-rdatest
+            Interface br-rdatest
+                type: internal
+    Bridge br-int
+        Port "qvo24b6e33a-74"
+            tag: 2
+            Interface "qvo24b6e33a-74"
+        Port "tapfeab5e54-14"
+            tag: 2
+            Interface "tapfeab5e54-14"
+        Port "qvoc5f72b59-1c"
+            tag: 6
+            Interface "qvoc5f72b59-1c"
+        Port "tap53051db2-0d"
+            tag: 3
+            Interface "tap53051db2-0d"
+        Port "qvo1eb33a61-39"
+            tag: 4
+            Interface "qvo1eb33a61-39"
+        Port "qvoad20aa98-44"
+            tag: 4
+            Interface "qvoad20aa98-44"
+        Port "qvoaea11735-74"
+            tag: 7
+            Interface "qvoaea11735-74"
+        Port "tap9063551f-f8"
+            tag: 2
+            Interface "tap9063551f-f8"
+        Port "qvob70df2cd-bd"
+            tag: 1
+            Interface "qvob70df2cd-bd"
+        Port "qvo69a792c9-4a"
+            tag: 6
+            Interface "qvo69a792c9-4a"
+        Port "qvoa7079a6a-12"
+            tag: 4095
+            Interface "qvoa7079a6a-12"
+        Port "qvoad0f4870-f5"
+            tag: 9
+            Interface "qvoad0f4870-f5"
+        Port "qvo6fd3836e-2a"
+            tag: 4095
+            Interface "qvo6fd3836e-2a"
+        Port "qvo133b24c6-d9"
+            tag: 3
+            Interface "qvo133b24c6-d9"
+        Port "qvoc59bfdf6-e2"
+            tag: 2
+            Interface "qvoc59bfdf6-e2"
+        Port "qvo9dcd6f05-2f"
+            tag: 4095
+            Interface "qvo9dcd6f05-2f"
+        Port int-br-ex
+            Interface int-br-ex
+        Port "qvo89e934a2-14"
+            tag: 4
+            Interface "qvo89e934a2-14"
+        Port "tapa553a734-06"
+            tag: 1
+            Interface "tapa553a734-06"
+        Port "qvo07814714-08"
+            tag: 7
+            Interface "qvo07814714-08"
+        Port "qvob9c0fbb0-d6"
+            tag: 1
+            Interface "qvob9c0fbb0-d6"
+        Port "qvo4770e663-14"
+            tag: 2
+            Interface "qvo4770e663-14"
+        Port "tap4cc96f45-72"
+            tag: 1
+            Interface "tap4cc96f45-72"
+        Port "qr-1c900d58-91"
+            tag: 11
+            Interface "qr-1c900d58-91"
+                type: internal
+        Port "qvoe12fed42-3b"
+            tag: 8
+            Interface "qvoe12fed42-3b"
+        Port "qvo4107e3c4-9f"
+            tag: 4
+            Interface "qvo4107e3c4-9f"
+        Port "qvo255d2041-3c"
+            tag: 3
+            Interface "qvo255d2041-3c"
+        Port "qvo896a2792-dc"
+            tag: 4095
+            Interface "qvo896a2792-dc"
+        Port "qvo17929294-12"
+            tag: 8
+            Interface "qvo17929294-12"
+        Port "tap9f8ec13f-dc"
+            tag: 10
+            Interface "tap9f8ec13f-dc"
+        Port "qvo19ced9e3-7e"
+            tag: 4
+            Interface "qvo19ced9e3-7e"
+        Port "tap66de194f-31"
+            tag: 4
+            Interface "tap66de194f-31"
+        Port "qvofac8e764-88"
+            tag: 8
+            Interface "qvofac8e764-88"
+        Port "qvo0d01becc-86"
+            tag: 9
+            Interface "qvo0d01becc-86"
+        Port "int-br-eth2"
+            Interface "int-br-eth2"
+        Port "qvo79dd29c9-dc"
+            tag: 3
+            Interface "qvo79dd29c9-dc"
+        Port "qvoa805f006-37"
+            tag: 7
+            Interface "qvoa805f006-37"
+        Port tap-vapp-controller
+            Interface tap-vapp-controller
+        Port "qvo9f568786-65"
+            tag: 1
+            Interface "qvo9f568786-65"
+        Port "qvoc9a620da-9b"
+            tag: 3
+            Interface "qvoc9a620da-9b"
+        Port "tapa938809b-00"
+            tag: 3
+            Interface "tapa938809b-00"
+        Port "qvocc196582-0f"
+            tag: 6
+            Interface "qvocc196582-0f"
+        Port "qvofa30ccac-ff"
+            tag: 4095
+            Interface "qvofa30ccac-ff"
+        Port "qvob310e89f-24"
+            tag: 8
+            Interface "qvob310e89f-24"
+        Port "qvo8fef48e0-e0"
+            tag: 1
+            Interface "qvo8fef48e0-e0"
+        Port "qvoc50fb0ad-e8"
+            tag: 7
+            Interface "qvoc50fb0ad-e8"
+        Port int-br-iot
+            Interface int-br-iot
+        Port "qvof7ad4189-bd"
+            tag: 2
+            Interface "qvof7ad4189-bd"
+        Port br-int
+            Interface br-int
+                type: internal
+        Port "qvo9b02ac48-c5"
+            tag: 4095
+            Interface "qvo9b02ac48-c5"
+        Port "qvo6be83685-3f"
+            tag: 4
+            Interface "qvo6be83685-3f"
+        Port "qvo16f340cb-78"
+            tag: 6
+            Interface "qvo16f340cb-78"
+        Port "qvo7e1c48f9-4e"
+            tag: 9
+            Interface "qvo7e1c48f9-4e"
+        Port "qvofe79de17-3c"
+            tag: 4
+            Interface "qvofe79de17-3c"
+        Port "qvo58ad3049-dc"
+            tag: 4095
+            Interface "qvo58ad3049-dc"
+        Port "qvo3224ac2d-c8"
+            tag: 4095
+            Interface "qvo3224ac2d-c8"
+        Port "qvoec463a1b-70"
+            tag: 10
+            Interface "qvoec463a1b-70"
+    ovs_version: "1.4.0+build0"
+localadmin@ubuntu1:~$ 
+localadmin@ubuntu1:~$ 
+localadmin@ubuntu1:~$ ifconfig
+br-eth2   Link encap:Ethernet  HWaddr ac:16:2d:7c:0d:26  
+          inet6 addr: fe80::ae16:2dff:fe7c:d26/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:34588208122 errors:0 dropped:602460005 overruns:0 frame:0
+          TX packets:36 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:4437513109881 (4.4 TB)  TX bytes:2940 (2.9 KB)
+
+br-ex     Link encap:Ethernet  HWaddr ac:16:2d:7c:0d:27  
+          inet6 addr: fe80::ae16:2dff:fe7c:d27/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:34747773093 errors:0 dropped:604751143 overruns:0 frame:0
+          TX packets:42 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:4478490890332 (4.4 TB)  TX bytes:3416 (3.4 KB)
+
+br-int    Link encap:Ethernet  HWaddr de:7b:4b:d9:b9:4b  
+          inet6 addr: fe80::dc7b:4bff:fed9:b94b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:34681830075 errors:0 dropped:625347605 overruns:0 frame:0
+          TX packets:31 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:4459254449268 (4.4 TB)  TX bytes:2510 (2.5 KB)
+
+br-iot    Link encap:Ethernet  HWaddr ac:16:2d:7c:0d:25  
+          inet addr:192.168.2.101  Bcast:192.168.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::ae16:2dff:fe7c:d25/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:46331661 errors:0 dropped:5 overruns:0 frame:0
+          TX packets:25765683 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:57702524968 (57.7 GB)  TX bytes:6069873737 (6.0 GB)
+
+eth0      Link encap:Ethernet  HWaddr ac:16:2d:7c:0d:24  
+          inet addr:10.175.150.3  Bcast:10.175.150.63  Mask:255.255.255.192
+          inet6 addr: fe80::ae16:2dff:fe7c:d24/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:19352288641 errors:0 dropped:366 overruns:0 frame:1137
+          TX packets:152107544 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2962144599190 (2.9 TB)  TX bytes:118205794077 (118.2 GB)
+          Interrupt:32 
+
+eth1      Link encap:Ethernet  HWaddr ac:16:2d:7c:0d:25  
+          inet addr:192.168.2.100  Bcast:192.168.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::ae16:2dff:fe7c:d25/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:191916344 errors:0 dropped:0 overruns:0 frame:7
+          TX packets:50717928 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:87845465250 (87.8 GB)  TX bytes:10024710497 (10.0 GB)
+          Interrupt:36 
+
+eth2      Link encap:Ethernet  HWaddr ac:16:2d:7c:0d:26  
+          inet6 addr: fe80::ae16:2dff:fe7c:d26/64 Scope:Link
+          UP BROADCAST PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:17623543483 errors:1 dropped:1558 overruns:0 frame:22295
+          TX packets:16911048360 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2348608119019 (2.3 TB)  TX bytes:2221253831206 (2.2 TB)
+          Interrupt:32 
+
+eth3      Link encap:Ethernet  HWaddr ac:16:2d:7c:0d:27  
+          inet6 addr: fe80::ae16:2dff:fe7c:d27/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:10632292843 errors:0 dropped:59342 overruns:0 frame:7725
+          TX packets:11023303007 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1701111511437 (1.7 TB)  TX bytes:1459238814119 (1.4 TB)
+          Interrupt:36 
+
+int-br-eth2 Link encap:Ethernet  HWaddr c6:c4:f7:d1:dc:b5  
+          inet6 addr: fe80::c4c4:f7ff:fed1:dcb5/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:6 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:9238623 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:468 (468.0 B)  TX bytes:822728779 (822.7 MB)
+
+int-br-ex Link encap:Ethernet  HWaddr 3a:7d:d6:b5:de:a0  
+          inet6 addr: fe80::387d:d6ff:feb5:dea0/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1307769 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10168904 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:261318812 (261.3 MB)  TX bytes:1573798068 (1.5 GB)
+
+int-br-iot Link encap:Ethernet  HWaddr da:f6:8e:59:3a:b9  
+          inet6 addr: fe80::d8f6:8eff:fe59:3ab9/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:667676 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8877417 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:346685700 (346.6 MB)  TX bytes:665770249 (665.7 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:1923149888 errors:0 dropped:390 overruns:0 frame:0
+          TX packets:1923149888 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:548958817650 (548.9 GB)  TX bytes:548958817650 (548.9 GB)
+
+lxcbr0    Link encap:Ethernet  HWaddr 82:dd:84:64:b4:53  
+          inet addr:10.0.3.1  Bcast:10.0.3.255  Mask:255.255.255.0
+          inet6 addr: fe80::80dd:84ff:fe64:b453/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:88170 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:7582464 (7.5 MB)
+
+phy-br-eth2 Link encap:Ethernet  HWaddr fa:4e:97:a6:67:a4  
+          inet6 addr: fe80::f84e:97ff:fea6:67a4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:9238623 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:822728779 (822.7 MB)  TX bytes:468 (468.0 B)
+
+phy-br-ex Link encap:Ethernet  HWaddr 96:55:38:09:2b:b0  
+          inet6 addr: fe80::9455:38ff:fe09:2bb0/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:10168904 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1307769 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1573798068 (1.5 GB)  TX bytes:261318812 (261.3 MB)
+
+phy-br-iot Link encap:Ethernet  HWaddr 92:fc:90:dc:97:70  
+          inet6 addr: fe80::90fc:90ff:fedc:9770/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8877417 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:667676 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:665770249 (665.7 MB)  TX bytes:346685700 (346.6 MB)
+
+qbr07814714-08 Link encap:Ethernet  HWaddr 1a:92:1e:6c:9a:57  
+          inet6 addr: fe80::b47f:74ff:fed4:8649/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:409649 errors:0 dropped:25972 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15620975 (15.6 MB)  TX bytes:528336 (528.3 KB)
+
+qbr0d01becc-86 Link encap:Ethernet  HWaddr 22:fb:4e:5c:b1:04  
+          inet6 addr: fe80::a431:2aff:fe33:1158/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:395863 errors:0 dropped:24 overruns:0 frame:0
+          TX packets:6142 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15216758 (15.2 MB)  TX bytes:528164 (528.1 KB)
+
+qbr16f340cb-78 Link encap:Ethernet  HWaddr e2:f0:52:c8:ae:e5  
+          inet6 addr: fe80::3c62:25ff:fee5:1346/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:409559 errors:0 dropped:25901 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15619283 (15.6 MB)  TX bytes:528336 (528.3 KB)
+
+qbr17929294-12 Link encap:Ethernet  HWaddr ce:13:7c:76:12:c7  
+          inet6 addr: fe80::a039:3dff:fe42:5ad3/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:383872 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:14585578 (14.5 MB)  TX bytes:528336 (528.3 KB)
+
+qbr3224ac2d-c8 Link encap:Ethernet  HWaddr 5a:b7:ae:4b:1b:87  
+          inet6 addr: fe80::e0f1:c7ff:fe64:68e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:566615 errors:0 dropped:5 overruns:0 frame:0
+          TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:22957838 (22.9 MB)  TX bytes:704 (704.0 B)
+
+qbr58ad3049-dc Link encap:Ethernet  HWaddr ca:6f:4c:7c:36:19  
+          inet6 addr: fe80::e4e4:cbff:fe18:a140/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:456146 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:33510 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:18528030 (18.5 MB)  TX bytes:2881704 (2.8 MB)
+
+qbr69a792c9-4a Link encap:Ethernet  HWaddr da:fc:5b:84:db:4f  
+          inet6 addr: fe80::5473:7aff:fe07:f30a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:421876 errors:0 dropped:25922 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16259517 (16.2 MB)  TX bytes:528336 (528.3 KB)
+
+qbr6be83685-3f Link encap:Ethernet  HWaddr 36:7c:cb:e4:b0:7a  
+          inet6 addr: fe80::f44d:87ff:fe15:cf12/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:642074 errors:0 dropped:44 overruns:0 frame:0
+          TX packets:112 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:34760427 (34.7 MB)  TX bytes:9476 (9.4 KB)
+
+qbr6fd3836e-2a Link encap:Ethernet  HWaddr 6e:5d:3f:db:e2:42  
+          inet6 addr: fe80::14f8:8ff:fe84:3b9b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1174251 errors:0 dropped:634525 overruns:0 frame:0
+          TX packets:74233 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:48321953 (48.3 MB)  TX bytes:6383882 (6.3 MB)
+
+qbr7e1c48f9-4e Link encap:Ethernet  HWaddr 5a:48:30:d1:94:d0  
+          inet6 addr: fe80::c406:72ff:fe6d:b562/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:395868 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6142 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15215764 (15.2 MB)  TX bytes:528164 (528.1 KB)
+
+qbr896a2792-dc Link encap:Ethernet  HWaddr a6:70:f8:40:1f:8d  
+          inet6 addr: fe80::b893:cfff:fe5c:3a3e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1174588 errors:0 dropped:634663 overruns:0 frame:0
+          TX packets:74237 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:48076482 (48.0 MB)  TX bytes:6384226 (6.3 MB)
+
+qbr89e934a2-14 Link encap:Ethernet  HWaddr 9e:4d:59:d1:b1:ac  
+          inet6 addr: fe80::a024:c5ff:fea0:70c1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:397817 errors:0 dropped:36 overruns:0 frame:0
+          TX packets:9 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16661832 (16.6 MB)  TX bytes:726 (726.0 B)
+
+qbr9b02ac48-c5 Link encap:Ethernet  HWaddr 12:45:c4:e8:eb:7e  
+          inet6 addr: fe80::ec51:feff:fe51:9f39/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:563639 errors:0 dropped:5 overruns:0 frame:0
+          TX packets:74232 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:23240597 (23.2 MB)  TX bytes:6383796 (6.3 MB)
+
+qbr9dcd6f05-2f Link encap:Ethernet  HWaddr 6a:3e:37:fe:fb:68  
+          inet6 addr: fe80::b86c:b1ff:fee3:1b4a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:563454 errors:0 dropped:5 overruns:0 frame:0
+          TX packets:74229 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:23230216 (23.2 MB)  TX bytes:6383538 (6.3 MB)
+
+qbra7079a6a-12 Link encap:Ethernet  HWaddr 16:9a:d2:d1:23:e1  
+          inet6 addr: fe80::898:20ff:feea:a91e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1174455 errors:0 dropped:634672 overruns:0 frame:0
+          TX packets:74236 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:48334419 (48.3 MB)  TX bytes:6384140 (6.3 MB)
+
+qbra805f006-37 Link encap:Ethernet  HWaddr b2:9e:27:0c:fe:2f  
+          inet6 addr: fe80::ac44:fcff:fe7d:f9bc/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:421901 errors:0 dropped:25936 overruns:0 frame:0
+          TX packets:6145 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16258317 (16.2 MB)  TX bytes:528422 (528.4 KB)
+
+qbrad0f4870-f5 Link encap:Ethernet  HWaddr 7e:0b:e6:c5:4b:c4  
+          inet6 addr: fe80::f4d1:13ff:fe3f:855a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:383589 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:14577066 (14.5 MB)  TX bytes:528336 (528.3 KB)
+
+qbrad20aa98-44 Link encap:Ethernet  HWaddr 8a:c7:c8:28:9c:d5  
+          inet6 addr: fe80::d81c:deff:fe1b:2417/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:396418 errors:0 dropped:32 overruns:0 frame:0
+          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16607112 (16.6 MB)  TX bytes:640 (640.0 B)
+
+qbraea11735-74 Link encap:Ethernet  HWaddr 9e:54:dd:49:6a:49  
+          inet6 addr: fe80::a43c:acff:fe8d:6123/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:421903 errors:0 dropped:25965 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16258503 (16.2 MB)  TX bytes:528336 (528.3 KB)
+
+qbrb310e89f-24 Link encap:Ethernet  HWaddr 4e:d8:d0:e2:90:04  
+          inet6 addr: fe80::f0f8:78ff:fef9:448a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:396146 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6145 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15224164 (15.2 MB)  TX bytes:528422 (528.4 KB)
+
+qbrc50fb0ad-e8 Link encap:Ethernet  HWaddr 3e:0d:52:3c:88:2d  
+          inet6 addr: fe80::c16:f7ff:fe2c:b739/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:421861 errors:0 dropped:25936 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16256483 (16.2 MB)  TX bytes:528336 (528.3 KB)
+
+qbrc5f72b59-1c Link encap:Ethernet  HWaddr b6:07:ff:5c:c3:29  
+          inet6 addr: fe80::b40a:78ff:fe18:5310/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:421880 errors:0 dropped:25949 overruns:0 frame:0
+          TX packets:6145 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16257373 (16.2 MB)  TX bytes:528422 (528.4 KB)
+
+qbrcc196582-0f Link encap:Ethernet  HWaddr ba:d5:bd:80:aa:3f  
+          inet6 addr: fe80::54f7:44ff:fea8:c982/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:421846 errors:0 dropped:25894 overruns:0 frame:0
+          TX packets:6144 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16258103 (16.2 MB)  TX bytes:528336 (528.3 KB)
+
+qbre12fed42-3b Link encap:Ethernet  HWaddr 8a:48:c0:69:40:62  
+          inet6 addr: fe80::7c41:c9ff:fe2d:4786/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:396128 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6145 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15223330 (15.2 MB)  TX bytes:528422 (528.4 KB)
+
+qbrec463a1b-70 Link encap:Ethernet  HWaddr b2:66:02:18:ec:69  
+          inet6 addr: fe80::2c13:b1ff:fe50:2d4c/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:384755 errors:0 dropped:7 overruns:0 frame:0
+          TX packets:6123 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:14632487 (14.6 MB)  TX bytes:526530 (526.5 KB)
+
+qbrfa30ccac-ff Link encap:Ethernet  HWaddr b6:32:3a:2e:5d:2f  
+          inet6 addr: fe80::1cf3:28ff:fe5c:5463/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1174376 errors:0 dropped:634516 overruns:0 frame:0
+          TX packets:74234 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:48062425 (48.0 MB)  TX bytes:6383968 (6.3 MB)
+
+qbrfac8e764-88 Link encap:Ethernet  HWaddr 92:d9:22:20:d0:b9  
+          inet6 addr: fe80::1cc0:96ff:feac:c4a8/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:396159 errors:0 dropped:22 overruns:0 frame:0
+          TX packets:6143 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15225612 (15.2 MB)  TX bytes:528250 (528.2 KB)
+
+qvb07814714-08 Link encap:Ethernet  HWaddr 1a:92:1e:6c:9a:57  
+          inet6 addr: fe80::1892:1eff:fe6c:9a57/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:4497737 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:31370 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:317425197 (317.4 MB)  TX bytes:2123971 (2.1 MB)
+
+qvb0d01becc-86 Link encap:Ethernet  HWaddr 22:fb:4e:5c:b1:04  
+          inet6 addr: fe80::20fb:4eff:fe5c:b104/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:411494 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6148 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:26495628 (26.4 MB)  TX bytes:528588 (528.5 KB)
+
+qvb16f340cb-78 Link encap:Ethernet  HWaddr e2:f0:52:c8:ae:e5  
+          inet6 addr: fe80::e0f0:52ff:fec8:aee5/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:4566280 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:108080 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:326379347 (326.3 MB)  TX bytes:8727601 (8.7 MB)
+
+qvb17929294-12 Link encap:Ethernet  HWaddr ce:13:7c:76:12:c7  
+          inet6 addr: fe80::cc13:7cff:fe76:12c7/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:701640 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:148468 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:281060370 (281.0 MB)  TX bytes:20565013 (20.5 MB)
+
+qvb3224ac2d-c8 Link encap:Ethernet  HWaddr 5a:b7:ae:4b:1b:87  
+          inet6 addr: fe80::58b7:aeff:fe4b:1b87/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:682701 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:94023 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:41942808 (41.9 MB)  TX bytes:9645284 (9.6 MB)
+
+qvb58ad3049-dc Link encap:Ethernet  HWaddr ca:6f:4c:7c:36:19  
+          inet6 addr: fe80::c86f:4cff:fe7c:3619/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:580678 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:33518 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:35623914 (35.6 MB)  TX bytes:2882192 (2.8 MB)
+
+qvb69a792c9-4a Link encap:Ethernet  HWaddr da:fc:5b:84:db:4f  
+          inet6 addr: fe80::d8fc:5bff:fe84:db4f/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:4577567 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:80344 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:317039355 (317.0 MB)  TX bytes:5786216 (5.7 MB)
+
+qvb6be83685-3f Link encap:Ethernet  HWaddr 36:7c:cb:e4:b0:7a  
+          inet6 addr: fe80::347c:cbff:fee4:b07a/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:690321 errors:0 dropped:174 overruns:0 frame:0
+          TX packets:120 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:47942782 (47.9 MB)  TX bytes:9964 (9.9 KB)
+
+qvb6fd3836e-2a Link encap:Ethernet  HWaddr 6e:5d:3f:db:e2:42  
+          inet6 addr: fe80::6c5d:3fff:fedb:e242/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:5640302 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3259273 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:385660138 (385.6 MB)  TX bytes:229225697 (229.2 MB)
+
+qvb7e1c48f9-4e Link encap:Ethernet  HWaddr 5a:48:30:d1:94:d0  
+          inet6 addr: fe80::5848:30ff:fed1:94d0/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:402025 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:12295 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:21290646 (21.2 MB)  TX bytes:1057262 (1.0 MB)
+
+qvb896a2792-dc Link encap:Ethernet  HWaddr a6:70:f8:40:1f:8d  
+          inet6 addr: fe80::a470:f8ff:fe40:1f8d/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:18581578 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14185380 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1412203242 (1.4 GB)  TX bytes:1002952060 (1.0 GB)
+
+qvb89e934a2-14 Link encap:Ethernet  HWaddr 9e:4d:59:d1:b1:ac  
+          inet6 addr: fe80::9c4d:59ff:fed1:b1ac/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:415157 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:216 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:25545293 (25.5 MB)  TX bytes:18064 (18.0 KB)
+
+qvb9b02ac48-c5 Link encap:Ethernet  HWaddr 12:45:c4:e8:eb:7e  
+          inet6 addr: fe80::1045:c4ff:fee8:eb7e/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:26856074 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26405091 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:3085998863 (3.0 GB)  TX bytes:4249132116 (4.2 GB)
+
+qvb9dcd6f05-2f Link encap:Ethernet  HWaddr 6a:3e:37:fe:fb:68  
+          inet6 addr: fe80::683e:37ff:fefe:fb68/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:22457673 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:21584849 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2374009934 (2.3 GB)  TX bytes:2348661521 (2.3 GB)
+
+qvba7079a6a-12 Link encap:Ethernet  HWaddr 16:9a:d2:d1:23:e1  
+          inet6 addr: fe80::149a:d2ff:fed1:23e1/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:5634686 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3182237 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:384893111 (384.8 MB)  TX bytes:224216199 (224.2 MB)
+
+qvba805f006-37 Link encap:Ethernet  HWaddr b2:9e:27:0c:fe:2f  
+          inet6 addr: fe80::b09e:27ff:fe0c:fe2f/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:6277070 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1849027 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:468504261 (468.5 MB)  TX bytes:225906957 (225.9 MB)
+
+qvbad0f4870-f5 Link encap:Ethernet  HWaddr 7e:0b:e6:c5:4b:c4  
+          inet6 addr: fe80::7c0b:e6ff:fec5:4bc4/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:401987 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:12299 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:21529536 (21.5 MB)  TX bytes:812086 (812.0 KB)
+
+qvbad20aa98-44 Link encap:Ethernet  HWaddr 8a:c7:c8:28:9c:d5  
+          inet6 addr: fe80::88c7:c8ff:fe28:9cd5/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:1029072 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:964802 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:115460103 (115.4 MB)  TX bytes:755953130 (755.9 MB)
+
+qvbaea11735-74 Link encap:Ethernet  HWaddr 9e:54:dd:49:6a:49  
+          inet6 addr: fe80::9c54:ddff:fe49:6a49/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:2243141 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5866463 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:237178419 (237.1 MB)  TX bytes:446602743 (446.6 MB)
+
+qvbb310e89f-24 Link encap:Ethernet  HWaddr 4e:d8:d0:e2:90:04  
+          inet6 addr: fe80::4cd8:d0ff:fee2:9004/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:10955117 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11772628 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:3068879013 (3.0 GB)  TX bytes:4387309257 (4.3 GB)
+
+qvbc50fb0ad-e8 Link encap:Ethernet  HWaddr 3e:0d:52:3c:88:2d  
+          inet6 addr: fe80::3c0d:52ff:fe3c:882d/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:4499345 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:18181 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:310310326 (310.3 MB)  TX bytes:1400999 (1.4 MB)
+
+qvbc5f72b59-1c Link encap:Ethernet  HWaddr b6:07:ff:5c:c3:29  
+          inet6 addr: fe80::b407:ffff:fe5c:c329/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:5957927 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1459837 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:419711704 (419.7 MB)  TX bytes:121088232 (121.0 MB)
+
+qvbcc196582-0f Link encap:Ethernet  HWaddr ba:d5:bd:80:aa:3f  
+          inet6 addr: fe80::b8d5:bdff:fe80:aa3f/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:1845929 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5547716 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:127119154 (127.1 MB)  TX bytes:397972535 (397.9 MB)
+
+qvbe12fed42-3b Link encap:Ethernet  HWaddr 8a:48:c0:69:40:62  
+          inet6 addr: fe80::8848:c0ff:fe69:4062/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:11789898 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10467316 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:3918444993 (3.9 GB)  TX bytes:3027310841 (3.0 GB)
+
+qvbec463a1b-70 Link encap:Ethernet  HWaddr b2:66:02:18:ec:69  
+          inet6 addr: fe80::b066:2ff:fe18:ec69/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:1062390 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:165665 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:366468704 (366.4 MB)  TX bytes:18359823 (18.3 MB)
+
+qvbfa30ccac-ff Link encap:Ethernet  HWaddr b6:32:3a:2e:5d:2f  
+          inet6 addr: fe80::b432:3aff:fe2e:5d2f/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:16671857 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:16173055 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1177358868 (1.1 GB)  TX bytes:1241665505 (1.2 GB)
+
+qvbfac8e764-88 Link encap:Ethernet  HWaddr 92:d9:22:20:d0:b9  
+          inet6 addr: fe80::90d9:22ff:fe20:d0b9/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:712056 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:136381 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:284544411 (284.5 MB)  TX bytes:15012503 (15.0 MB)
+
+qvo07814714-08 Link encap:Ethernet  HWaddr 22:60:9c:34:68:8e  
+          inet6 addr: fe80::2060:9cff:fe34:688e/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:31370 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4497737 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2123971 (2.1 MB)  TX bytes:317425197 (317.4 MB)
+
+qvo0d01becc-86 Link encap:Ethernet  HWaddr fa:4f:61:e0:b1:2e  
+          inet6 addr: fe80::f84f:61ff:fee0:b12e/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:6148 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:411494 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:528588 (528.5 KB)  TX bytes:26495628 (26.4 MB)
+
+qvo16f340cb-78 Link encap:Ethernet  HWaddr 6e:26:79:53:a7:42  
+          inet6 addr: fe80::6c26:79ff:fe53:a742/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:108080 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4566280 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:8727601 (8.7 MB)  TX bytes:326379347 (326.3 MB)
+
+qvo17929294-12 Link encap:Ethernet  HWaddr 7a:4c:54:66:41:1b  
+          inet6 addr: fe80::784c:54ff:fe66:411b/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:148468 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:701640 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:20565013 (20.5 MB)  TX bytes:281060370 (281.0 MB)
+
+qvo3224ac2d-c8 Link encap:Ethernet  HWaddr 82:ab:af:ea:db:fe  
+          inet6 addr: fe80::80ab:afff:feea:dbfe/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:94023 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:682701 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:9645284 (9.6 MB)  TX bytes:41942808 (41.9 MB)
+
+qvo58ad3049-dc Link encap:Ethernet  HWaddr 8e:d2:5e:56:fa:2e  
+          inet6 addr: fe80::8cd2:5eff:fe56:fa2e/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:33518 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:580678 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2882192 (2.8 MB)  TX bytes:35623914 (35.6 MB)
+
+qvo69a792c9-4a Link encap:Ethernet  HWaddr 32:11:cf:6f:a8:62  
+          inet6 addr: fe80::3011:cfff:fe6f:a862/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:80344 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4577567 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:5786216 (5.7 MB)  TX bytes:317039355 (317.0 MB)
+
+qvo6be83685-3f Link encap:Ethernet  HWaddr 0a:a5:c3:1c:db:1f  
+          inet6 addr: fe80::8a5:c3ff:fe1c:db1f/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:120 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:690321 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:9964 (9.9 KB)  TX bytes:47942782 (47.9 MB)
+
+qvo6fd3836e-2a Link encap:Ethernet  HWaddr 36:08:ba:ec:40:fd  
+          inet6 addr: fe80::3408:baff:feec:40fd/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:3259273 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5640302 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:229225697 (229.2 MB)  TX bytes:385660138 (385.6 MB)
+
+qvo7e1c48f9-4e Link encap:Ethernet  HWaddr 2a:36:97:d2:f0:3e  
+          inet6 addr: fe80::2836:97ff:fed2:f03e/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:12295 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:402025 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1057262 (1.0 MB)  TX bytes:21290646 (21.2 MB)
+
+qvo896a2792-dc Link encap:Ethernet  HWaddr 82:9e:33:f8:77:93  
+          inet6 addr: fe80::809e:33ff:fef8:7793/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:14185380 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:18581578 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1002952060 (1.0 GB)  TX bytes:1412203242 (1.4 GB)
+
+qvo89e934a2-14 Link encap:Ethernet  HWaddr 42:76:17:bd:5d:a9  
+          inet6 addr: fe80::4076:17ff:febd:5da9/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:216 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:415157 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:18064 (18.0 KB)  TX bytes:25545293 (25.5 MB)
+
+qvo9b02ac48-c5 Link encap:Ethernet  HWaddr ea:ca:fb:70:82:7d  
+          inet6 addr: fe80::e8ca:fbff:fe70:827d/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:26405091 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26856074 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:4249132116 (4.2 GB)  TX bytes:3085998863 (3.0 GB)
+
+qvo9dcd6f05-2f Link encap:Ethernet  HWaddr b2:15:a9:dc:e3:fe  
+          inet6 addr: fe80::b015:a9ff:fedc:e3fe/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:21584849 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:22457673 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2348661521 (2.3 GB)  TX bytes:2374009934 (2.3 GB)
+
+qvoa7079a6a-12 Link encap:Ethernet  HWaddr ae:18:51:cd:5f:59  
+          inet6 addr: fe80::ac18:51ff:fecd:5f59/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:3182237 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5634686 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:224216199 (224.2 MB)  TX bytes:384893111 (384.8 MB)
+
+qvoa805f006-37 Link encap:Ethernet  HWaddr 46:a8:4c:75:03:68  
+          inet6 addr: fe80::44a8:4cff:fe75:368/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:1849027 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6277070 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:225906957 (225.9 MB)  TX bytes:468504261 (468.5 MB)
+
+qvoad0f4870-f5 Link encap:Ethernet  HWaddr 46:7b:8b:42:cf:30  
+          inet6 addr: fe80::447b:8bff:fe42:cf30/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:12299 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:401987 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:812086 (812.0 KB)  TX bytes:21529536 (21.5 MB)
+
+qvoad20aa98-44 Link encap:Ethernet  HWaddr fa:5f:ed:dd:4f:d2  
+          inet6 addr: fe80::f85f:edff:fedd:4fd2/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:964802 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1029072 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:755953130 (755.9 MB)  TX bytes:115460103 (115.4 MB)
+
+qvoaea11735-74 Link encap:Ethernet  HWaddr 6a:25:9d:d7:d5:75  
+          inet6 addr: fe80::6825:9dff:fed7:d575/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:5866463 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2243141 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:446602743 (446.6 MB)  TX bytes:237178419 (237.1 MB)
+
+qvob310e89f-24 Link encap:Ethernet  HWaddr ce:69:11:33:a2:9c  
+          inet6 addr: fe80::cc69:11ff:fe33:a29c/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:11772628 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10955117 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:4387309257 (4.3 GB)  TX bytes:3068879013 (3.0 GB)
+
+qvoc50fb0ad-e8 Link encap:Ethernet  HWaddr 46:13:1a:25:61:87  
+          inet6 addr: fe80::4413:1aff:fe25:6187/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:18181 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4499345 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1400999 (1.4 MB)  TX bytes:310310326 (310.3 MB)
+
+qvoc5f72b59-1c Link encap:Ethernet  HWaddr 56:2f:96:36:b4:27  
+          inet6 addr: fe80::542f:96ff:fe36:b427/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:1459837 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5957927 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:121088232 (121.0 MB)  TX bytes:419711704 (419.7 MB)
+
+qvocc196582-0f Link encap:Ethernet  HWaddr d6:b2:83:6f:3c:b0  
+          inet6 addr: fe80::d4b2:83ff:fe6f:3cb0/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:5547716 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1845929 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:397972535 (397.9 MB)  TX bytes:127119154 (127.1 MB)
+
+qvoe12fed42-3b Link encap:Ethernet  HWaddr 82:e6:79:e2:41:a5  
+          inet6 addr: fe80::80e6:79ff:fee2:41a5/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:10467316 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11789898 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:3027310841 (3.0 GB)  TX bytes:3918444993 (3.9 GB)
+
+qvoec463a1b-70 Link encap:Ethernet  HWaddr 06:ab:c9:2f:f8:de  
+          inet6 addr: fe80::4ab:c9ff:fe2f:f8de/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:165665 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1062390 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:18359823 (18.3 MB)  TX bytes:366468704 (366.4 MB)
+
+qvofa30ccac-ff Link encap:Ethernet  HWaddr 52:56:bf:40:ac:62  
+          inet6 addr: fe80::5056:bfff:fe40:ac62/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:16173055 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:16671857 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1241665505 (1.2 GB)  TX bytes:1177358868 (1.1 GB)
+
+qvofac8e764-88 Link encap:Ethernet  HWaddr 8e:e4:a2:d5:3c:2d  
+          inet6 addr: fe80::8ce4:a2ff:fed5:3c2d/64 Scope:Link
+          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1
+          RX packets:136381 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:712056 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:15012503 (15.0 MB)  TX bytes:284544411 (284.5 MB)
+
+tap07814714-08 Link encap:Ethernet  HWaddr fe:02:b3:bc:fa:a2  
+          inet6 addr: fe80::fc02:b3ff:febc:faa2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:19101 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4478575 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:1314489 (1.3 MB)  TX bytes:315537083 (315.5 MB)
+
+tap0d01becc-86 Link encap:Ethernet  HWaddr fe:02:b3:bc:fb:a4  
+          inet6 addr: fe80::fc02:b3ff:febc:fba4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:397087 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:0 (0.0 B)  TX bytes:22482674 (22.4 MB)
+
+tap16f340cb-78 Link encap:Ethernet  HWaddr fe:02:b3:bc:fb:a1  
+          inet6 addr: fe80::fc02:b3ff:febc:fba1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:95826 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4545487 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:7919417 (7.9 MB)  TX bytes:322738921 (322.7 MB)
+
+tap17929294-12 Link encap:Ethernet  HWaddr fe:02:b3:bc:fa:a3  
+          inet6 addr: fe80::fc02:b3ff:febc:faa3/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:136199 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:678224 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:19755531 (19.7 MB)  TX bytes:272460541 (272.4 MB)
+
+tap4cc96f45-72 Link encap:Ethernet  HWaddr 06:f8:74:d0:97:dd  
+          inet6 addr: fe80::4f8:74ff:fed0:97dd/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:74 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:390296 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:6316 (6.3 KB)  TX bytes:20331777 (20.3 MB)
+
+tap69a792c9-4a Link encap:Ethernet  HWaddr fe:02:b3:bc:fa:a1  
+          inet6 addr: fe80::fc02:b3ff:febc:faa1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:74194 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4552060 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:5257456 (5.2 MB)  TX bytes:314856276 (314.8 MB)
+
+tap7e1c48f9-4e Link encap:Ethernet  HWaddr fe:02:b3:bc:f9:a4  
+          inet6 addr: fe80::fc02:b3ff:febc:f9a4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:6148 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:395887 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:528752 (528.7 KB)  TX bytes:20759360 (20.7 MB)
+
+tap89e934a2-14 Link encap:Ethernet  HWaddr fe:02:b3:bc:fa:a4  
+          inet6 addr: fe80::fc02:b3ff:febc:faa4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:201 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:413733 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:16946 (16.9 KB)  TX bytes:23796997 (23.7 MB)
+
+tap9063551f-f8 Link encap:Ethernet  HWaddr 02:b4:e5:e8:83:7e  
+          inet6 addr: fe80::b4:e5ff:fee8:837e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:11 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:388666 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:898 (898.0 B)  TX bytes:20211462 (20.2 MB)
+
+tap9f8ec13f-dc Link encap:Ethernet  HWaddr 9a:f4:31:e0:a6:31  
+          inet6 addr: fe80::98f4:31ff:fee0:a631/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:20581 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:905430 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1667919 (1.6 MB)  TX bytes:193009419 (193.0 MB)
+
+tapa805f006-37 Link encap:Ethernet  HWaddr fe:02:b3:bc:f8:a2  
+          inet6 addr: fe80::fc02:b3ff:febc:f8a2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1842876 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6269847 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:225378155 (225.3 MB)  TX bytes:467493775 (467.4 MB)
+
+tapa938809b-00 Link encap:Ethernet  HWaddr 42:ca:ba:34:48:46  
+          inet6 addr: fe80::40ca:baff:fe34:4846/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:50 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:388727 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:4252 (4.2 KB)  TX bytes:20215422 (20.2 MB)
+
+tapad0f4870-f5 Link encap:Ethernet  HWaddr fe:02:b3:bc:f8:a4  
+          inet6 addr: fe80::fc02:b3ff:febc:f8a4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:6148 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:395873 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:528752 (528.7 KB)  TX bytes:20758190 (20.7 MB)
+
+tapad20aa98-44 Link encap:Ethernet  HWaddr fe:16:3e:0b:ff:af  
+          inet6 addr: fe80::fc16:3eff:fe0b:ffaf/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:104977 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:310648 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:76990825 (76.9 MB)  TX bytes:49118718 (49.1 MB)
+
+tapaea11735-74 Link encap:Ethernet  HWaddr fe:02:b3:bc:f9:a2  
+          inet6 addr: fe80::fc02:b3ff:febc:f9a2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5860314 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6275355 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:446074061 (446.0 MB)  TX bytes:518926911 (518.9 MB)
+
+tapb310e89f-24 Link encap:Ethernet  HWaddr fe:02:b3:bc:f8:a3  
+          inet6 addr: fe80::fc02:b3ff:febc:f8a3/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:10267462 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10935296 errors:0 dropped:0 overruns:272 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:4302732953 (4.3 GB)  TX bytes:3067012598 (3.0 GB)
+
+tapc50fb0ad-e8 Link encap:Ethernet  HWaddr fe:02:b3:bc:fb:a2  
+          inet6 addr: fe80::fc02:b3ff:febc:fba2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:12031 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4472055 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:872239 (872.2 KB)  TX bytes:305729766 (305.7 MB)
+
+tapc5f72b59-1c Link encap:Ethernet  HWaddr fe:02:b3:bc:f8:a1  
+          inet6 addr: fe80::fc02:b3ff:febc:f8a1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1453685 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5950932 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:120559340 (120.5 MB)  TX bytes:418718293 (418.7 MB)
+
+tapcc196582-0f Link encap:Ethernet  HWaddr fe:02:b3:bc:f9:a1  
+          inet6 addr: fe80::fc02:b3ff:febc:f9a1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5541566 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5877495 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:397443775 (397.4 MB)  TX bytes:408775059 (408.7 MB)
+
+tape12fed42-3b Link encap:Ethernet  HWaddr fe:02:b3:bc:f9:a3  
+          inet6 addr: fe80::fc02:b3ff:febc:f9a3/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:9764928 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11770166 errors:0 dropped:0 overruns:533 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:2985703825 (2.9 GB)  TX bytes:3916589587 (3.9 GB)
+
+tapec463a1b-70 Link encap:Ethernet  HWaddr fe:16:3e:06:82:f7  
+          inet6 addr: fe80::fc16:3eff:fe06:82f7/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:41192 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:239839 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:4718254 (4.7 MB)  TX bytes:20944089 (20.9 MB)
+
+tapfac8e764-88 Link encap:Ethernet  HWaddr fe:02:b3:bc:fb:a3  
+          inet6 addr: fe80::fc02:b3ff:febc:fba3/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:130232 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:678539 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:14483829 (14.4 MB)  TX bytes:272788050 (272.7 MB)
+
+taprdamon1 Link encap:Ethernet  HWaddr 9a:3c:25:f6:d0:f4  
+          inet6 addr: fe80::983c:25ff:fef6:d0f4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:56816272 errors:0 dropped:1295736 overruns:0 frame:0
+          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:63395577481 (63.3 GB)  TX bytes:532 (532.0 B)
+
+virbr0    Link encap:Ethernet  HWaddr 36:5a:62:9c:1a:6a  
+          inet addr:192.168.122.1  Bcast:192.168.122.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+localadmin@ubuntu1:~$ brctl show
+bridge name     bridge id               STP enabled     interfaces
+br-eth2         0000.ac162d7c0d26       no              eth2
+                                                        phy-br-eth2
+br-ex           0000.ac162d7c0d27       no              eth3
+                                                        phy-br-ex
+br-int          0000.de7b4bd9b94b       no              int-br-eth2
+                                                        int-br-ex
+                                                        int-br-iot
+                                                        qr-1c900d58-91
+                                                        qvo07814714-08
+                                                        qvo0d01becc-86
+                                                        qvo16f340cb-78
+                                                        qvo17929294-12
+                                                        qvo3224ac2d-c8
+                                                        qvo58ad3049-dc
+                                                        qvo69a792c9-4a
+                                                        qvo6be83685-3f
+                                                        qvo6fd3836e-2a
+                                                        qvo7e1c48f9-4e
+                                                        qvo896a2792-dc
+                                                        qvo89e934a2-14
+                                                        qvo9b02ac48-c5
+                                                        qvo9dcd6f05-2f
+                                                        qvoa7079a6a-12
+                                                        qvoa805f006-37
+                                                        qvoad0f4870-f5
+                                                        qvoad20aa98-44
+                                                        qvoaea11735-74
+                                                        qvob310e89f-24
+                                                        qvoc50fb0ad-e8
+                                                        qvoc5f72b59-1c
+                                                        qvocc196582-0f
+                                                        qvoe12fed42-3b
+                                                        qvoec463a1b-70
+                                                        qvofa30ccac-ff
+                                                        qvofac8e764-88
+                                                        tap4cc96f45-72
+                                                        tap9063551f-f8
+                                                        tap9f8ec13f-dc
+                                                        tapa938809b-00
+br-iot                  0000.ac162d7c0d25       no      eth1
+                                                        phy-br-iot
+br-rdatest              0000.9e7db66ce74d       no      taprdamon1
+lxcbr0                  8000.000000000000       no
+qbr07814714-08          8000.1a921e6c9a57       no      qvb07814714-08
+                                                        tap07814714-08
+qbr0d01becc-86          8000.22fb4e5cb104       no              qvb0d01becc-86
+                                                        tap0d01becc-86
+qbr16f340cb-78          8000.e2f052c8aee5       no              qvb16f340cb-78
+                                                        tap16f340cb-78
+qbr17929294-12          8000.ce137c7612c7       no              qvb17929294-12
+                                                        tap17929294-12
+qbr3224ac2d-c8          8000.5ab7ae4b1b87       no              qvb3224ac2d-c8
+qbr58ad3049-dc          8000.ca6f4c7c3619       no              qvb58ad3049-dc
+qbr69a792c9-4a          8000.dafc5b84db4f       no              qvb69a792c9-4a
+                                                        tap69a792c9-4a
+qbr6be83685-3f          8000.367ccbe4b07a       no              qvb6be83685-3f
+qbr6fd3836e-2a          8000.6e5d3fdbe242       no              qvb6fd3836e-2a
+qbr7e1c48f9-4e          8000.5a4830d194d0       no              qvb7e1c48f9-4e
+                                                        tap7e1c48f9-4e
+qbr896a2792-dc          8000.a670f8401f8d       no              qvb896a2792-dc
+qbr89e934a2-14          8000.9e4d59d1b1ac       no              qvb89e934a2-14
+                                                        tap89e934a2-14
+qbr9b02ac48-c5          8000.1245c4e8eb7e       no              qvb9b02ac48-c5
+qbr9dcd6f05-2f          8000.6a3e37fefb68       no              qvb9dcd6f05-2f
+qbra7079a6a-12          8000.169ad2d123e1       no              qvba7079a6a-12
+qbra805f006-37          8000.b29e270cfe2f       no              qvba805f006-37
+                                                        tapa805f006-37
+qbrad0f4870-f5          8000.7e0be6c54bc4       no              qvbad0f4870-f5
+                                                        tapad0f4870-f5
+qbrad20aa98-44          8000.8ac7c8289cd5       no              qvbad20aa98-44
+                                                        tapad20aa98-44
+qbraea11735-74          8000.9e54dd496a49       no              qvbaea11735-74
+                                                        tapaea11735-74
+qbrb310e89f-24          8000.4ed8d0e29004       no              qvbb310e89f-24
+                                                        tapb310e89f-24
+qbrc50fb0ad-e8          8000.3e0d523c882d       no              qvbc50fb0ad-e8
+                                                        tapc50fb0ad-e8
+qbrc5f72b59-1c          8000.b607ff5cc329       no              qvbc5f72b59-1c
+                                                        tapc5f72b59-1c
+qbrcc196582-0f          8000.bad5bd80aa3f       no              qvbcc196582-0f
+                                                        tapcc196582-0f
+qbre12fed42-3b          8000.8a48c0694062       no              qvbe12fed42-3b
+                                                        tape12fed42-3b
+qbrec463a1b-70          8000.b2660218ec69       no              qvbec463a1b-70
+                                                        tapec463a1b-70
+qbrfa30ccac-ff          8000.b6323a2e5d2f       no              qvbfa30ccac-ff
+qbrfac8e764-88          8000.92d92220d0b9       no              qvbfac8e764-88
+                                                        tapfac8e764-88
+virbr0          8000.000000000000       yes
+localadmin@ubuntu1:~$ quantum net-list
++--------------------------------------+---------+--------------------------------------------------------+
+| id                                   | name    | subnets                                                |
++--------------------------------------+---------+--------------------------------------------------------+
+| 1ccbafb2-e1fb-4947-90f3-e2d57cea9888 | net172  | 9d6c19b4-01a2-49ff-bd6d-9053d450a3f2 192.168.172.0/24  |
+| 1d579223-71e3-4911-8040-04239a786523 | Tester  | d761bd8c-ac3f-4b79-a803-aa97d9d5fa4a 192.168.254.0/24  |
+| 2467b70c-9109-4289-bb2e-ce15101ae7b3 | net04   | 1df93ddb-be20-43c6-9721-f3d28eb970ab 192.168.4.0/24    |
+| 28c19d5e-7889-4763-93b1-1514aac53a37 | net101  | 771b3433-760e-422c-aa8b-6da51158e9cb 169.254.101.0/24  |
+| 316dc642-0d8f-4c64-8a81-add5fe7f1f33 | net01   | de4c21ea-8b5a-46b7-9420-1dc2d84081e2 192.168.1.0/24    |
+| 510a4a98-f7cf-4937-bfcd-ce047fbbb696 | iot_net | f1e18609-9b56-42b6-9d23-51863e7672fc 192.168.2.0/24    |
+| 71c88509-d608-413a-81c4-fe2e15499531 | ext_net | 13c54473-5456-42c4-8b93-929208ba9ca1 10.175.150.192/27 |
+| 7254bda9-e34c-4da8-806b-7636a0895bcf | net69   | e862d0aa-7db6-4737-866d-ebb7ca50b01b 169.254.69.0/24   |
+| be4b5011-07fc-44f5-9bc2-eac5a7dac2a0 | net70   | 121f9ee1-b375-4fc0-9809-6c3aae617502 169.254.70.0/24   |
+| c4ef4f5b-9711-4c1a-b168-e351269a321b | net00   | 082eef27-40c5-43cc-b709-0c5c7e72b91e 192.168.0.0/24    |
+| c56ae164-3d37-4a18-be04-bfb5fb4fd2ca | net100  | 291fb383-794b-4fde-9e5a-341429ef2631 169.254.100.0/24  |
+| ce4b9bb6-c746-46e4-975a-8ff7d24d1761 | net173  | ff1521f7-ef81-47ef-9b2d-c692a7ccd44e 192.168.173.0/24  |
+| deabf6c6-54f3-487e-b103-857f2994e5ca | net03   | 7f750970-38e0-46bd-b10a-c164582d3d95 192.168.3.0/24    |
+| ea0ce889-7483-477c-8104-76a48ef92c82 | net171  | 4fcc7044-8f34-4123-a8b4-cb4994800a9b 192.168.171.0/24  |
+| f104aa09-d16b-4218-9363-e84dc947dfaf | net02   |                                                        |
++--------------------------------------+---------+--------------------------------------------------------+
+localadmin@ubuntu1:~$ quantum subnet-list
++--------------------------------------+-----------+-------------------+------------------------------------------------------+
+| id                                   | name      | cidr              | allocation_pools                                     |
++--------------------------------------+-----------+-------------------+------------------------------------------------------+
+| 082eef27-40c5-43cc-b709-0c5c7e72b91e | subnet00  | 192.168.0.0/24    | {"start": "192.168.0.2", "end": "192.168.0.254"}     |
+| 121f9ee1-b375-4fc0-9809-6c3aae617502 | subnet70  | 169.254.70.0/24   | {"start": "169.254.70.2", "end": "169.254.70.254"}   |
+| 13c54473-5456-42c4-8b93-929208ba9ca1 | subnetext | 10.175.150.192/27 | {"start": "10.175.150.194", "end": "10.175.150.222"} |
+| 1df93ddb-be20-43c6-9721-f3d28eb970ab | subnet04  | 192.168.4.0/24    | {"start": "192.168.4.2", "end": "192.168.4.254"}     |
+| 291fb383-794b-4fde-9e5a-341429ef2631 | subnet100 | 169.254.100.0/24  | {"start": "169.254.100.2", "end": "169.254.100.254"} |
+| 4fcc7044-8f34-4123-a8b4-cb4994800a9b |           | 192.168.171.0/24  | {"start": "192.168.171.2", "end": "192.168.171.254"} |
+| 771b3433-760e-422c-aa8b-6da51158e9cb | subnet101 | 169.254.101.0/24  | {"start": "169.254.101.2", "end": "169.254.101.254"} |
+| 7f750970-38e0-46bd-b10a-c164582d3d95 | subnet03  | 192.168.3.0/24    | {"start": "192.168.3.2", "end": "192.168.3.254"}     |
+| 9d6c19b4-01a2-49ff-bd6d-9053d450a3f2 |           | 192.168.172.0/24  | {"start": "192.168.172.2", "end": "192.168.172.254"} |
+| d761bd8c-ac3f-4b79-a803-aa97d9d5fa4a | Tester    | 192.168.254.0/24  | {"start": "192.168.254.2", "end": "192.168.254.254"} |
+| de4c21ea-8b5a-46b7-9420-1dc2d84081e2 | subnet01  | 192.168.1.0/24    | {"start": "192.168.1.2", "end": "192.168.1.254"}     |
+| e862d0aa-7db6-4737-866d-ebb7ca50b01b | subnet69  | 169.254.69.0/24   | {"start": "169.254.69.2", "end": "169.254.69.254"}   |
+| f1e18609-9b56-42b6-9d23-51863e7672fc | subnetiot | 192.168.2.0/24    | {"start": "192.168.2.2", "end": "192.168.2.254"}     |
+| ff1521f7-ef81-47ef-9b2d-c692a7ccd44e |           | 192.168.173.0/24  | {"start": "192.168.173.2", "end": "192.168.173.254"} |
++--------------------------------------+-----------+-------------------+------------------------------------------------------+
+localadmin@ubuntu1:~$ quantum port-list
++--------------------------------------+----------+-------------------+---------------------------------------------------------------------------------------+
+| id                                   | name     | mac_address       | fixed_ips                                                                             |
++--------------------------------------+----------+-------------------+---------------------------------------------------------------------------------------+
+| 07814714-08bc-4736-a757-6ed8ee47371d | MGC-PL-3 | 00:02:B3:BC:FA:A2 | {"subnet_id": "121f9ee1-b375-4fc0-9809-6c3aae617502", "ip_address": "169.254.70.4"}   |
+| 0d01becc-86a0-4c23-961a-c8913161c5e6 | MGC-PL-4 | 00:02:B3:BC:FB:A4 | {"subnet_id": "771b3433-760e-422c-aa8b-6da51158e9cb", "ip_address": "169.254.101.4"}  |
+| 12ffccac-e5d6-486c-9820-4be2051ac1bf |          | fa:16:3e:2a:c0:0c | {"subnet_id": "13c54473-5456-42c4-8b93-929208ba9ca1", "ip_address": "10.175.150.196"} |
+| 16f340cb-7884-4ec1-8c75-c81be538c14c | MGC-PL-4 | 00:02:B3:BC:FB:A1 | {"subnet_id": "e862d0aa-7db6-4737-866d-ebb7ca50b01b", "ip_address": "169.254.69.6"}   |
+| 17929294-12df-4f32-a20c-30284aa83887 | MGC-PL-3 | 00:02:B3:BC:FA:A3 | {"subnet_id": "291fb383-794b-4fde-9e5a-341429ef2631", "ip_address": "169.254.100.4"}  |
+| 1c900d58-9177-4a23-90e6-b36b20f24810 |          | fa:16:3e:b2:ce:05 | {"subnet_id": "d761bd8c-ac3f-4b79-a803-aa97d9d5fa4a", "ip_address": "192.168.254.1"}  |
+| 4cc96f45-72dc-489f-8021-0e63da52fb1c |          | fa:16:3e:d4:ab:6f | {"subnet_id": "4fcc7044-8f34-4123-a8b4-cb4994800a9b", "ip_address": "192.168.171.3"}  |
+| 69a792c9-4a98-47a1-9052-a11d9fd01937 | MGC-PL-3 | 00:02:B3:BC:FA:A1 | {"subnet_id": "e862d0aa-7db6-4737-866d-ebb7ca50b01b", "ip_address": "169.254.69.5"}   |
+| 6be83685-3f13-4d9e-ba32-5ad7d66db6a0 |          | fa:16:3e:af:15:b7 | {"subnet_id": "13c54473-5456-42c4-8b93-929208ba9ca1", "ip_address": "10.175.150.195"} |
+| 6e7c1ab1-0a36-40a9-aca1-c46649c1c40f | CIRROS   | 00:02:B3:BC:F8:A8 | {"subnet_id": "e862d0aa-7db6-4737-866d-ebb7ca50b01b", "ip_address": "169.254.69.4"}   |
+| 7e1c48f9-4e18-42a8-ba81-6b7b317a6620 | MGC-SC-2 | 00:02:B3:BC:F9:A4 | {"subnet_id": "771b3433-760e-422c-aa8b-6da51158e9cb", "ip_address": "169.254.101.3"}  |
+| 89e934a2-147f-409d-ba56-5b13b8f138a0 | MGC-PL-3 | 00:02:B3:BC:FA:A4 | {"subnet_id": "13c54473-5456-42c4-8b93-929208ba9ca1", "ip_address": "10.175.150.194"} |
+| 9063551f-f861-41d3-88f8-c1bfa7ef9ad5 |          | fa:16:3e:32:62:1d | {"subnet_id": "ff1521f7-ef81-47ef-9b2d-c692a7ccd44e", "ip_address": "192.168.173.3"}  |
+| 9f8ec13f-dc8b-477b-aeed-8dc7da0adbcf |          | fa:16:3e:c8:da:9b | {"subnet_id": "f1e18609-9b56-42b6-9d23-51863e7672fc", "ip_address": "192.168.2.3"}    |
+| a805f006-37c9-4bd4-a597-053d25c48fd8 | MGC-SC-1 | 00:02:B3:BC:F8:A2 | {"subnet_id": "121f9ee1-b375-4fc0-9809-6c3aae617502", "ip_address": "169.254.70.2"}   |
+| a938809b-0065-43ed-93d2-b7f631cb04aa |          | fa:16:3e:e5:68:8d | {"subnet_id": "9d6c19b4-01a2-49ff-bd6d-9053d450a3f2", "ip_address": "192.168.172.3"}  |
+| ad0f4870-f50c-41ec-99a2-dd8b600ed355 | MGC-SC-1 | 00:02:B3:BC:F8:A4 | {"subnet_id": "771b3433-760e-422c-aa8b-6da51158e9cb", "ip_address": "169.254.101.2"}  |
+| ad20aa98-44de-4aa8-a876-ad00e3afef4b |          | fa:16:3e:0b:ff:af | {"subnet_id": "13c54473-5456-42c4-8b93-929208ba9ca1", "ip_address": "10.175.150.197"} |
+| aea11735-7469-46fa-8d16-d45ad5611c39 | MGC-SC-2 | 00:02:B3:BC:F9:A2 | {"subnet_id": "121f9ee1-b375-4fc0-9809-6c3aae617502", "ip_address": "169.254.70.3"}   |
+| b310e89f-2465-4c61-9200-f30f79a94b09 | MGC-SC-1 | 00:02:B3:BC:F8:A3 | {"subnet_id": "291fb383-794b-4fde-9e5a-341429ef2631", "ip_address": "169.254.100.2"}  |
+| c50fb0ad-e896-4f6d-8fd0-5a8131425d11 | MGC-PL-4 | 00:02:B3:BC:FB:A2 | {"subnet_id": "121f9ee1-b375-4fc0-9809-6c3aae617502", "ip_address": "169.254.70.5"}   |
+| c5f72b59-1c08-4b39-a5ec-d7aba3f39962 | MGC-SC-1 | 00:02:B3:BC:F8:A1 | {"subnet_id": "e862d0aa-7db6-4737-866d-ebb7ca50b01b", "ip_address": "169.254.69.2"}   |
+| cc196582-0fa6-46aa-8508-ef5424e4beaf | MGC-SC-2 | 00:02:B3:BC:F9:A1 | {"subnet_id": "e862d0aa-7db6-4737-866d-ebb7ca50b01b", "ip_address": "169.254.69.3"}   |
+| e12fed42-3b03-4e82-a8cc-dc78535c844a | MGC-SC-2 | 00:02:B3:BC:F9:A3 | {"subnet_id": "291fb383-794b-4fde-9e5a-341429ef2631", "ip_address": "169.254.100.3"}  |
+| ec463a1b-7073-4554-b794-06212cabdc18 |          | fa:16:3e:06:82:f7 | {"subnet_id": "f1e18609-9b56-42b6-9d23-51863e7672fc", "ip_address": "192.168.2.2"}    |
+| fac8e764-88ef-44bc-af1c-97b012bbd8e9 | MGC-PL-4 | 00:02:B3:BC:FB:A3 | {"subnet_id": "291fb383-794b-4fde-9e5a-341429ef2631", "ip_address": "169.254.100.5"}  |
++--------------------------------------+----------+-------------------+---------------------------------------------------------------------------------------+
+localadmin@ubuntu1:~$ nova list
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------------------+
+| ID                                   | Name                 | Status    | Networks                                                                             |
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------------------+
+| f3fa167c-6dc9-44e7-a5f5-93ee839af847 | IpworksDemoDualReg17 | ACTIVE    | ext_net=10.175.150.196                                                               |
+| 025fcfc6-6fa2-4dae-8acd-f69ec3d8eea7 | LOTC1-netext         | SUSPENDED | ext_net=10.175.150.195                                                               |
+| dd12baf3-8397-46f2-b378-3d2115129dd8 | MGC-PL-3             | ACTIVE    | net70=169.254.70.4; ext_net=10.175.150.194; net69=169.254.69.5; net100=169.254.100.4 |
+| 14597ff5-55c1-4686-9caa-d10520aaf905 | MGC-PL-4             | ACTIVE    | net70=169.254.70.5; net69=169.254.69.6; net100=169.254.100.5; net101=169.254.101.4   |
+| c37ebe2b-ca33-4947-9ce1-ffaea460e07c | MGC-SC-1             | ACTIVE    | net70=169.254.70.2; net69=169.254.69.2; net100=169.254.100.2; net101=169.254.101.2   |
+| 23c3ba01-2f2a-474f-80c6-2f9bfd1a9b98 | MGC-SC-2             | ACTIVE    | net70=169.254.70.3; net69=169.254.69.3; net100=169.254.100.3; net101=169.254.101.3   |
+| 9149a5d5-147e-47e8-b25d-1fb044ec803d | SLES                 | ACTIVE    | ext_net=10.175.150.197; iot_net=192.168.2.2                                          |
++--------------------------------------+----------------------+-----------+--------------------------------------------------------------------------------------+
+localadmin@ubuntu1:~$ 
+localadmin@ubuntu1:~$ nova show 
+usage: nova show [--minimal] <server>
+error: too few arguments
+Try 'nova help show' for more information.
+localadmin@ubuntu1:~$ nova show IpworksDemoDualReg17
++-------------------------------------+----------------------------------------------------------+
+| Property                            | Value                                                    |
++-------------------------------------+----------------------------------------------------------+
+| status                              | ACTIVE                                                   |
+| updated                             | 2014-02-21T09:25:45Z                                     |
+| OS-EXT-STS:task_state               | None                                                     |
+| OS-EXT-SRV-ATTR:host                | Ubuntu2                                                  |
+| key_name                            | mykey                                                    |
+| image                               | SLES 11 SP3 64bit (57a0a2c6-df50-485c-858e-acfb59f00613) |
+| hostId                              | ad41f81bc668bced55db17e654b812d941786e86527f5812b935398d |
+| OS-EXT-STS:vm_state                 | active                                                   |
+| OS-EXT-SRV-ATTR:instance_name       | instance-0000026f                                        |
+| OS-EXT-SRV-ATTR:hypervisor_hostname | Ubuntu2.vims.ics.se                                      |
+| flavor                              | Ipworks.tiny (59fb4813-1036-45a7-ab15-267fcc02662c)      |
+| id                                  | f3fa167c-6dc9-44e7-a5f5-93ee839af847                     |
+| security_groups                     | [{u'name': u'default'}]                                  |
+| user_id                             | 8902032cf4e4401cac5b0db6f888591e                         |
+| name                                | IpworksDemoDualReg17                                     |
+| created                             | 2014-02-17T08:45:22Z                                     |
+| tenant_id                           | 71f8f0bdcd2c440885e84ec6dcc32e30                         |
+| OS-DCF:diskConfig                   | MANUAL                                                   |
+| metadata                            | {}                                                       |
+| ext_net network                     | 10.175.150.196                                           |
+| accessIPv4                          |                                                          |
+| accessIPv6                          |                                                          |
+| progress                            | 0                                                        |
+| OS-EXT-STS:power_state              | 1                                                        |
+| OS-EXT-AZ:availability_zone         | nova                                                     |
+| config_drive                        |                                                          |
++-------------------------------------+----------------------------------------------------------+
